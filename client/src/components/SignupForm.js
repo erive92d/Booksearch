@@ -64,7 +64,7 @@ const SignupForm = () => {
         >
           Something went wrong with your signup!
         </Alert>
-        {data ? console.log("success") : null}
+        
         <Form.Group>
           <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control

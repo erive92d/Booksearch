@@ -59,13 +59,25 @@ const resolvers = {
         const newBook = { authors, description, bookId, image, link, title };
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: newBook } }
+          { $addToSet: { savedBooks: newBook } },
+          { new: true }
         );
         return newBook;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
   },
+  // deleteBook: async (parent, { bookId }, context) => {
+  //   if (context.user) {
+  //     const userData = User.findOneAndUpdate(
+  //       { _id: context.user._id },
+  //       { $pull: { savedBooks: { bookId } } },
+  //       { new: true }
+  //     );
+  //     return userData;
+  //   }
+  //   throw new AuthenticationError("You need to be logged in!");
+  // },
 };
 
 module.exports = resolvers;

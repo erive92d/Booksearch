@@ -39,6 +39,10 @@ const SignupForm = () => {
       const { data } = await addUser({
         variables: { username, email, password },
       });
+      console.log(data);
+      // Auth.login(data.login.token);
+
+      window.location.reload();
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -64,7 +68,7 @@ const SignupForm = () => {
         >
           Something went wrong with your signup!
         </Alert>
-        
+
         <Form.Group>
           <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control

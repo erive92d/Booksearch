@@ -24,6 +24,7 @@ const LoginForm = () => {
 
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
+
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
@@ -94,6 +95,9 @@ const LoginForm = () => {
           Submit
         </Button>
       </Form>
+      {error && (
+        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+      )}
     </>
   );
 };
